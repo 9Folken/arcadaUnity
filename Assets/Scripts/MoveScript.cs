@@ -32,6 +32,6 @@ public class MoveScript : MonoBehaviour
 	void FixedUpdate()
 	{
 		// Применить движение к Rigidbody
-		rigidbody2D.velocity = movement;
+		GetComponent<Rigidbody2D>().velocity = movement;
 	}
 }
