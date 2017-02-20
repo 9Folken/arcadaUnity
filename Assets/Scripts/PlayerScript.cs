@@ -26,11 +26,26 @@ public class PlayerScript : MonoBehaviour
 			speed.x * inputX,
 			speed.y * inputY);
 
+		// 5 - Стрельба
+		bool shoot = Input.GetButtonDown("Fire1");
+		shoot |= Input.GetButtonDown("Fire2");
+		// Замечание: Для пользователей Mac, Ctrl + стрелка - это плохая идея
+
+		if (shoot)
+		{
+			WeaponScript weapon = GetComponent<WeaponScript>();
+			if (weapon != null)
+			{
+				// ложь, так как игрок не враг
+				weapon.Attack(false);
+			}
+		}
+
 	}
 
 	void FixedUpdate()
 	{
-        // 5 - перемещение игрового объекта
+        // 6 - перемещение игрового объекта
         GetComponent<Rigidbody2D>().velocity = movement;
     }
 }
